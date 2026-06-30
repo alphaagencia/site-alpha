@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* ============================================================
+   ALPHA — Design tokens
+   Paleta oficial. Distribuição: 70% preto · 15% off-white ·
+   10% grafite · 5% dourado · 1% champagne.
+   ============================================================ */
+@theme {
+  --color-preto: #050505;
+  --color-grafite: #101010;
+  --color-grafite-2: #1a1a1a;
+  --color-dourado: #c8a45d;
+  --color-champagne: #e8d7a8;
+  --color-offwhite: #f7f4ee;
+  --color-texto-claro: #d8d8d8;
+  --color-texto-medio: #a0a0a0;
+  --color-linha: rgba(200, 164, 93, 0.2);
+
+  --font-display: "Sora", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ============================================================
+   Base
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-preto);
+    color: var(--color-texto-claro);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.7;
+    font-feature-settings: "ss01", "cv01";
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    color: var(--color-offwhite);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  ::selection {
+    background-color: var(--color-dourado);
+    color: var(--color-preto);
+  }
+
+  /* Foco visível por teclado, na cor da marca */
+  :focus-visible {
+    outline: 2px solid var(--color-dourado);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* ============================================================
+   Utilitários de marca
+   ============================================================ */
+@layer utilities {
+  /* Sublinha fina dourada sob palavra-chave (componente Alpha) */
+  .underline-dourado {
+    background-image: linear-gradient(var(--color-dourado), var(--color-dourado));
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    background-size: 100% 2px;
+    padding-bottom: 0.08em;
+  }
+}
+
+/* Respeita prefers-reduced-motion globalmente */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
