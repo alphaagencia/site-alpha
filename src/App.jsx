@@ -1,6 +1,7 @@
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
 import Problema from "./components/Problema";
+import Metodo from "./components/Metodo";
 import Solucao from "./components/Solucao";
 import Servicos from "./components/Servicos";
 import Processo from "./components/Processo";
@@ -16,6 +17,7 @@ function App() {
       <main>
         <Hero />
         <Problema />
+        <Metodo />
         <Solucao />
         <Servicos />
         <Processo />

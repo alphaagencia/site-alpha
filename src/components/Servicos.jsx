@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
+import { cn } from "../lib/utils";
 
 const WA_BASE = "https://wa.me/5548999923506?text=";
 
@@ -7,20 +8,21 @@ const SERVICOS = [
   {
     kicker: "Site institucional",
     nome: "Alpha Presença Local",
-    desc: "Site institucional compacto para negócios que precisam sair do improviso, apresentar seus serviços com clareza e facilitar o contato pelo WhatsApp.",
+    desc: "Site institucional compacto para negócios que precisam se apresentar melhor, organizar seus serviços e facilitar o contato pelo WhatsApp.",
     msg: "Olá! Tenho interesse no Alpha Presença Local (site institucional).",
   },
   {
     kicker: "Landing page",
     nome: "Alpha Conversão",
-    desc: "Landing page estratégica para apresentar uma oferta específica, reduzir dúvidas do visitante e conduzir para uma ação clara, como uma conversa pelo WhatsApp.",
+    desc: "Landing page estratégica para apresentar uma oferta específica, reduzir dúvidas e conduzir o visitante para uma ação.",
     msg: "Olá! Tenho interesse no Alpha Conversão (landing page).",
   },
   {
     kicker: "Estrutura completa",
     nome: "Alpha Estrutura Premium",
-    desc: "Estrutura digital completa para empresas que querem unir site institucional, landing page, WhatsApp organizado, SEO local e rastreamento básico em uma presença mais profissional.",
+    desc: "Site institucional + landing page + WhatsApp + SEO local básico + rastreamento inicial para empresas que precisam de uma estrutura mais completa.",
     msg: "Olá! Tenho interesse no Alpha Estrutura Premium (estrutura completa).",
+    destaque: true,
   },
 ];
 
@@ -31,7 +33,6 @@ export default function Servicos() {
       className="border-t border-linha bg-offwhite py-28 text-preto md:py-40"
     >
       <div className="mx-auto w-full max-w-[1280px] px-6 md:px-10">
-        {/* Eyebrow + título */}
         <Reveal
           as="div"
           className="mb-10 flex items-center gap-3 text-[12px] tracking-[0.22em] text-preto/55 uppercase"
@@ -51,45 +52,52 @@ export default function Servicos() {
         <Reveal
           as="p"
           delay={0.1}
-          className="mt-6 mb-16 max-w-[58ch] text-[clamp(1rem,1.3vw,1.15rem)] leading-[1.7] text-preto/60 md:mb-20"
+          className="mt-6 mb-14 max-w-[58ch] text-[clamp(1rem,1.3vw,1.15rem)] leading-[1.7] text-preto/60 md:mb-20"
         >
           Do site institucional à estrutura completa, cada pacote foi pensado
           para apresentar melhor sua empresa, transmitir mais confiança e
           facilitar o contato pelo WhatsApp.
         </Reveal>
 
-        {/* Lista editorial — fecha embaixo com filete */}
-        <div className="border-b border-preto/10">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {SERVICOS.map((s, i) => (
-            <Reveal as="div" key={s.nome} delay={i * 0.06}>
-              <a
-                href={WA_BASE + encodeURIComponent(s.msg)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group grid grid-cols-1 items-baseline gap-y-4 border-t border-preto/10 py-10 transition-colors duration-300 md:grid-cols-12 md:gap-x-10 md:py-14"
-              >
-                {/* Esquerda — kicker + nome */}
-                <div className="md:col-span-6 lg:col-span-5">
-                  <span className="mb-3 block text-[12px] tracking-[0.2em] text-preto/55 uppercase">
-                    {s.kicker}
-                  </span>
-                  <h3 className="flex items-center gap-3 font-display text-[clamp(1.5rem,2.6vw,2.1rem)] font-semibold leading-[1.1] tracking-[-0.02em] text-preto transition-transform duration-300 ease-out group-hover:translate-x-1">
-                    {s.nome}
-                  </h3>
-                </div>
+            <Reveal
+              as="a"
+              key={s.nome}
+              delay={i * 0.08}
+              href={WA_BASE + encodeURIComponent(s.msg)}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={cn(
+                "group relative flex flex-col rounded-lg border p-8 transition-all duration-300 ease-out hover:-translate-y-1.5 md:p-9",
+                s.destaque
+                  ? "border-dourado/50 bg-white shadow-[0_20px_50px_-30px_rgba(200,164,93,0.5)] hover:shadow-[0_28px_60px_-28px_rgba(200,164,93,0.6)]"
+                  : "border-preto/10 bg-white hover:border-preto/20 hover:shadow-[0_24px_48px_-30px_rgba(5,5,5,0.35)]",
+              )}
+            >
+              {s.destaque && (
+                <span className="absolute -top-3 left-8 rounded-full border border-dourado/50 bg-offwhite px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-dourado uppercase">
+                  Mais completo
+                </span>
+              )}
 
-                {/* Direita — descrição + seta */}
-                <div className="flex items-start justify-between gap-6 md:col-span-6 md:col-start-7 lg:col-start-8 lg:col-span-5">
-                  <p className="max-w-[46ch] text-[clamp(0.98rem,1.2vw,1.1rem)] leading-[1.7] text-preto/60 transition-colors duration-300 group-hover:text-preto">
-                    {s.desc}
-                  </p>
-                  <ArrowUpRight
-                    size={26}
-                    strokeWidth={1.4}
-                    className="mt-1 shrink-0 text-preto/30 transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-dourado"
-                  />
-                </div>
-              </a>
+              <span className="text-[12px] tracking-[0.2em] text-preto/50 uppercase">
+                {s.kicker}
+              </span>
+              <h3 className="mt-3 font-display text-[clamp(1.4rem,2vw,1.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-preto">
+                {s.nome}
+              </h3>
+              <p className="mt-4 flex-1 text-[0.98rem] leading-[1.65] text-preto/60">
+                {s.desc}
+              </p>
+
+              <span className="mt-7 inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.02em] text-preto transition-colors duration-300 group-hover:text-dourado">
+                Falar sobre este pacote
+                <ArrowUpRight
+                  size={16}
+                  className="transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                />
+              </span>
             </Reveal>
           ))}
         </div>

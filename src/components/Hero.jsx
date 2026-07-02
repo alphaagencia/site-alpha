@@ -71,9 +71,9 @@ export default function Hero() {
           variants={rise}
           className="mt-8 max-w-[52ch] text-[clamp(1rem,1.4vw,1.18rem)] leading-[1.7] text-texto-claro"
         >
-          A Alpha cria sites institucionais e landing pages para negócios
-          locais que precisam transmitir mais confiança e conduzir clientes
-          interessados direto para o WhatsApp.
+          Criamos sites institucionais e landing pages que ajudam empresas
+          locais a transmitir mais confiança, reduzir dúvidas e conduzir
+          visitantes para conversas pelo WhatsApp.
         </motion.p>
 
         {/* CTAs */}

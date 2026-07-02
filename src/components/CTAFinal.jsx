@@ -19,34 +19,56 @@ export default function CTAFinal() {
       <div className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col items-center px-6 text-center md:px-10">
         <Reveal
           as="h2"
-          className="font-display font-semibold text-[clamp(2.75rem,9vw,6rem)] leading-[1.02] tracking-[-0.03em] text-offwhite"
+          className="max-w-[20ch] font-display font-semibold text-[clamp(2rem,5vw,3.9rem)] leading-[1.08] tracking-[-0.02em] text-offwhite"
         >
-          Vamos{" "}
-          <span className="underline-dourado text-dourado">conversar</span>
-          <span className="text-dourado">?</span>
+          Sua empresa merece uma presença digital{" "}
+          <span className="underline-dourado text-dourado">
+            à altura da qualidade do seu trabalho.
+          </span>
         </Reveal>
 
         <Reveal
           as="p"
           delay={0.08}
-          className="mt-7 max-w-[40ch] text-[clamp(1.05rem,1.5vw,1.3rem)] leading-[1.6] text-texto-claro"
+          className="mt-7 max-w-[52ch] text-[clamp(1.02rem,1.4vw,1.22rem)] leading-[1.65] text-texto-claro"
         >
-          Diagnóstico inicial gratuito. Sem compromisso.
+          Se o seu negócio entrega valor, mas ainda não comunica isso com
+          clareza no digital, a Alpha pode ajudar a organizar esse caminho.
         </Reveal>
 
-        <Reveal as="div" delay={0.16} className="mt-11">
+        <Reveal
+          as="div"
+          delay={0.16}
+          className="mt-11 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
+        >
           <a
             href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center justify-center gap-2.5 bg-dourado px-8 py-4 text-[1.05rem] font-medium tracking-[0.01em] text-preto transition-all duration-300 hover:bg-champagne"
+            aria-label="Pedir análise pelo WhatsApp"
+            className="group inline-flex min-h-[52px] items-center justify-center gap-2.5 bg-dourado px-8 py-4 text-[1.02rem] font-medium tracking-[0.01em] text-preto transition-all duration-300 hover:bg-champagne"
           >
-            Chamar no WhatsApp
+            Pedir análise pelo WhatsApp
             <ArrowUpRight
               size={20}
               className="transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
             />
           </a>
+          <a
+            href="#servicos"
+            className="group inline-flex items-center justify-center gap-2 px-3 py-4 text-[1rem] font-medium text-texto-claro transition-colors duration-300 hover:text-offwhite"
+          >
+            Conhecer os serviços
+            <span className="h-px w-6 bg-texto-medio transition-all duration-300 group-hover:w-9 group-hover:bg-dourado" />
+          </a>
+        </Reveal>
+
+        <Reveal
+          as="p"
+          delay={0.22}
+          className="mt-7 text-[13px] tracking-[0.02em] text-texto-medio"
+        >
+          Diagnóstico inicial gratuito, sem compromisso.
         </Reveal>
       </div>
     </section>
