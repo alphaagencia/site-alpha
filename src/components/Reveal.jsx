@@ -18,7 +18,7 @@ export default function Reveal({
 
   return (
     <MotionTag
-      initial={reduce ? { opacity: 0 } : { opacity: 0, y }}
+      initial={reduce ? false : { opacity: 0, y }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount }}
       transition={{ duration: 0.85, ease: EASE, delay }}

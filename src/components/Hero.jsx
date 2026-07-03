@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { WHATSAPP_URL } from "../lib/site";
+import TriangleBackground from "./visual/TriangleBackground";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -28,6 +29,9 @@ export default function Hero() {
       id="top"
       className="relative flex min-h-screen items-center overflow-hidden"
     >
+      {/* Camada de triângulos de fundo */}
+      <TriangleBackground variant="hero" className="z-0" />
+
       {/* Elemento de assinatura: triângulo Alpha + halo, lado direito */}
       <AmbientMark reduce={reduce} />
 
@@ -39,7 +43,7 @@ export default function Hero() {
 
       <motion.div
         variants={container}
-        initial="hidden"
+        initial={reduce ? false : "hidden"}
         animate="show"
         className="relative z-10 mx-auto w-full max-w-[1280px] px-6 pt-32 pb-20 md:px-10 md:pt-28"
       >

@@ -71,23 +71,18 @@ export default function Metodo() {
           <span className="text-dourado">pelo layout.</span>
         </Reveal>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-10 gap-y-12 sm:grid-cols-2 lg:grid-cols-3">
           {ITENS.map(({ icon: Icon, titulo, desc }, i) => (
-            <Reveal
-              as="div"
-              key={titulo}
-              delay={(i % 3) * 0.06}
-              className="group relative rounded-sm border border-linha bg-grafite-2/50 p-7 transition-all duration-300 ease-out hover:-translate-y-1 hover:border-dourado/45 hover:bg-grafite-2 md:p-8"
-            >
+            <Reveal as="div" key={titulo} delay={(i % 3) * 0.06} className="group">
               <Icon
-                size={22}
+                size={28}
                 strokeWidth={1.4}
-                className="text-dourado transition-transform duration-300 group-hover:scale-110"
+                className="text-dourado transition-transform duration-300 group-hover:-translate-y-0.5"
               />
-              <h3 className="mt-6 font-display text-[1.2rem] font-semibold leading-snug tracking-[-0.01em] text-offwhite">
+              <h3 className="mt-5 font-display text-[1.2rem] font-semibold leading-snug tracking-[-0.01em] text-offwhite">
                 {titulo}
               </h3>
-              <p className="mt-3 text-[0.98rem] leading-[1.65] text-texto-medio">
+              <p className="mt-3 max-w-[36ch] text-[0.98rem] leading-[1.65] text-texto-medio">
                 {desc}
               </p>
             </Reveal>

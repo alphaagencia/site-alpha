@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { Plus } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import Reveal from "./Reveal";
 import { WHATSAPP_URL } from "../lib/site";
 
@@ -52,7 +52,7 @@ function Item({ faq, index, open, onToggle, reduce }) {
   const panelId = `faq-panel-${index}`;
 
   return (
-    <div className="border-t border-preto/10 first:border-t-0">
+    <div className="border-b border-dourado/20">
       <h3>
         <button
           id={triggerId}
@@ -65,12 +65,12 @@ function Item({ faq, index, open, onToggle, reduce }) {
           <span className="font-display text-[clamp(1.1rem,1.7vw,1.35rem)] font-medium leading-[1.35] tracking-[-0.01em] text-preto">
             {faq.q}
           </span>
-          <Plus
+          <ChevronDown
             size={22}
-            strokeWidth={1.5}
+            strokeWidth={1.6}
             aria-hidden="true"
             className={`shrink-0 text-dourado transition-transform duration-300 ease-out ${
-              isOpen ? "rotate-45" : "rotate-0"
+              isOpen ? "rotate-180" : "rotate-0"
             }`}
           />
         </button>

@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import BrowserMockup from "./visual/BrowserMockup";
 
 /* Mockups abstratos (wireframe) do que a Alpha constrói */
 function MockupSite() {
@@ -105,6 +106,23 @@ export default function Solucao() {
             </Reveal>
           </div>
         </div>
+
+        {/* Frame de prova de trabalho (placeholder até prints reais) */}
+        <Reveal className="mx-auto mt-16 max-w-[860px] md:mt-24">
+          <BrowserMockup>
+            <div className="space-y-3">
+              <span className="block h-3 w-1/2 rounded bg-dourado/50" />
+              <span className="block h-2 w-full rounded bg-texto-claro/10" />
+              <span className="block h-2 w-5/6 rounded bg-texto-claro/10" />
+              <div className="mt-4 flex gap-3">
+                <span className="h-20 flex-1 rounded bg-texto-claro/[0.05]" />
+                <span className="h-20 flex-1 rounded bg-texto-claro/[0.05]" />
+                <span className="h-20 flex-1 rounded bg-texto-claro/[0.05]" />
+              </div>
+              <span className="mt-4 block h-8 w-32 rounded bg-dourado/80" />
+            </div>
+          </BrowserMockup>
+        </Reveal>
 
         {/* Mockups do que construímos */}
         <div className="mt-16 md:mt-24">

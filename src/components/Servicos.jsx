@@ -69,29 +69,29 @@ export default function Servicos() {
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                "group relative flex flex-col rounded-lg border p-8 transition-all duration-300 ease-out hover:-translate-y-1.5 md:p-9",
+                "group relative flex flex-col rounded-lg bg-grafite p-8 transition-all duration-300 ease-out hover:-translate-y-1.5 md:p-9",
                 s.destaque
-                  ? "border-dourado/50 bg-white shadow-[0_20px_50px_-30px_rgba(200,164,93,0.5)] hover:shadow-[0_28px_60px_-28px_rgba(200,164,93,0.6)]"
-                  : "border-preto/10 bg-white hover:border-preto/20 hover:shadow-[0_24px_48px_-30px_rgba(5,5,5,0.35)]",
+                  ? "border-2 border-dourado shadow-[0_24px_60px_-30px_rgba(200,164,93,0.45)]"
+                  : "border border-dourado/40 hover:border-dourado",
               )}
             >
               {s.destaque && (
-                <span className="absolute -top-3 left-8 rounded-full border border-dourado/50 bg-offwhite px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-dourado uppercase">
+                <span className="absolute -top-3 left-8 rounded-full border border-dourado bg-preto px-3 py-1 text-[10px] font-medium tracking-[0.18em] text-dourado uppercase">
                   Mais completo
                 </span>
               )}
 
-              <span className="text-[12px] tracking-[0.2em] text-preto/50 uppercase">
+              <span className="text-[12px] tracking-[0.2em] text-texto-medio uppercase">
                 {s.kicker}
               </span>
-              <h3 className="mt-3 font-display text-[clamp(1.4rem,2vw,1.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-preto">
+              <h3 className="mt-3 font-display text-[clamp(1.4rem,2vw,1.75rem)] font-semibold leading-[1.15] tracking-[-0.02em] text-offwhite">
                 {s.nome}
               </h3>
-              <p className="mt-4 flex-1 text-[0.98rem] leading-[1.65] text-preto/60">
+              <p className="mt-4 flex-1 text-[0.98rem] leading-[1.65] text-texto-claro/70">
                 {s.desc}
               </p>
 
-              <span className="mt-7 inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.02em] text-preto transition-colors duration-300 group-hover:text-dourado">
+              <span className="mt-7 inline-flex items-center gap-2 text-[13px] font-medium tracking-[0.02em] text-texto-claro transition-colors duration-300 group-hover:text-dourado">
                 Falar sobre este pacote
                 <ArrowUpRight
                   size={16}

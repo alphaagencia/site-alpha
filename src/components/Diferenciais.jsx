@@ -1,3 +1,4 @@
+import { Check } from "lucide-react";
 import Reveal from "./Reveal";
 
 // main = afirmação (off-white) · tail = contraste/detalhe (apagado)
@@ -55,17 +56,12 @@ export default function Diferenciais() {
               delay={i * 0.07}
               className="flex items-start gap-3 py-5 first:pt-0 last:pb-0 md:gap-4 md:py-6"
             >
-              {/* Nó luminoso + filete — linguagem tech do Processo */}
-              <span
+              <Check
+                size={26}
+                strokeWidth={1.6}
                 aria-hidden="true"
-                className="mt-[0.7em] flex shrink-0 items-center"
-              >
-                <span className="relative flex h-1.5 w-1.5 items-center justify-center">
-                  <span className="absolute h-3 w-3 rounded-full bg-dourado/35 blur-[3px]" />
-                  <span className="relative h-1.5 w-1.5 rounded-full bg-dourado" />
-                </span>
-                <span className="h-px w-6 bg-gradient-to-r from-dourado to-dourado/0 md:w-9" />
-              </span>
+                className="mt-[0.35em] shrink-0 text-dourado"
+              />
               <p className="font-display text-[clamp(1.25rem,2.1vw,1.7rem)] font-medium leading-[1.3] tracking-[-0.01em] text-offwhite">
                 {item.main}
                 <span className="text-texto-medio">{item.tail}</span>

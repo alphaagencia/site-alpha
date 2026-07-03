@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Reveal from "./Reveal";
 import { WHATSAPP_URL } from "../lib/site";
+import TriangleBackground from "./visual/TriangleBackground";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -15,6 +16,7 @@ export default function CTAFinal() {
     >
       {/* Triângulo Alpha + halo — bookend do hero, centralizado */}
       <AmbientMark reduce={reduce} />
+      <TriangleBackground variant="corner" className="right-0 bottom-0" />
 
       <div className="relative z-10 mx-auto flex w-full max-w-[1280px] flex-col items-center px-6 text-center md:px-10">
         <Reveal
