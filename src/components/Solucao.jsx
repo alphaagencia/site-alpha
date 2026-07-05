@@ -1,55 +1,14 @@
 import Reveal from "./Reveal";
 import BrowserMockup from "./visual/BrowserMockup";
+import solMockup from "../assets/sol-mockup.png";
+import solSite from "../assets/sol-site.png";
+import solLanding from "../assets/sol-landing.png";
+import solWhats from "../assets/sol-whats.png";
 
-/* Mockups abstratos (wireframe) do que a Alpha constrói */
-function MockupSite() {
-  return (
-    <div className="overflow-hidden rounded-md border border-preto/10 bg-offwhite">
-      <div className="flex items-center gap-1.5 border-b border-preto/10 px-3 py-2.5">
-        <span className="h-2 w-2 rounded-full bg-preto/15" />
-        <span className="h-2 w-2 rounded-full bg-preto/15" />
-        <span className="h-2 w-2 rounded-full bg-preto/15" />
-        <span className="ml-2 h-2 flex-1 rounded bg-preto/[0.07]" />
-      </div>
-      <div className="space-y-2.5 p-4">
-        <span className="block h-2.5 w-2/3 rounded bg-dourado/40" />
-        <span className="block h-2 w-full rounded bg-preto/10" />
-        <span className="block h-2 w-5/6 rounded bg-preto/10" />
-        <span className="mt-3 block h-6 w-24 rounded bg-preto/80" />
-      </div>
-    </div>
-  );
-}
-
-function MockupLanding() {
-  return (
-    <div className="mx-auto w-[62%] overflow-hidden rounded-[14px] border border-preto/10 bg-offwhite p-2">
-      <div className="space-y-2 rounded-md bg-preto/[0.03] p-3">
-        <span className="block h-2 w-3/4 rounded bg-dourado/40" />
-        <span className="block h-1.5 w-full rounded bg-preto/10" />
-        <span className="block h-1.5 w-2/3 rounded bg-preto/10" />
-        <span className="mt-3 block h-5 w-full rounded bg-dourado/80" />
-        <span className="mt-3 block h-10 w-full rounded bg-preto/[0.06]" />
-      </div>
-    </div>
-  );
-}
-
-function MockupWhats() {
-  return (
-    <div className="space-y-2.5 rounded-md border border-preto/10 bg-offwhite p-4">
-      <span className="block h-6 w-2/3 rounded-lg rounded-tl-none bg-preto/[0.06]" />
-      <span className="ml-auto block h-6 w-3/4 rounded-lg rounded-tr-none bg-dourado/25" />
-      <span className="block h-6 w-1/2 rounded-lg rounded-tl-none bg-preto/[0.06]" />
-      <span className="ml-auto block h-8 w-4/5 rounded-lg rounded-tr-none bg-dourado/25" />
-    </div>
-  );
-}
-
-const MOCKUPS = [
-  { label: "Site institucional", node: <MockupSite /> },
-  { label: "Landing page", node: <MockupLanding /> },
-  { label: "WhatsApp estratégico", node: <MockupWhats /> },
+const CARDS = [
+  { label: "Site institucional", img: solSite },
+  { label: "Landing page", img: solLanding },
+  { label: "WhatsApp estratégico", img: solWhats },
 ];
 
 export default function Solucao() {
@@ -107,24 +66,12 @@ export default function Solucao() {
           </div>
         </div>
 
-        {/* Frame de prova de trabalho (placeholder até prints reais) */}
+        {/* Mockup de prova de trabalho */}
         <Reveal className="mx-auto mt-16 max-w-[860px] md:mt-24">
-          <BrowserMockup>
-            <div className="space-y-3">
-              <span className="block h-3 w-1/2 rounded bg-dourado/50" />
-              <span className="block h-2 w-full rounded bg-texto-claro/10" />
-              <span className="block h-2 w-5/6 rounded bg-texto-claro/10" />
-              <div className="mt-4 flex gap-3">
-                <span className="h-20 flex-1 rounded bg-texto-claro/[0.05]" />
-                <span className="h-20 flex-1 rounded bg-texto-claro/[0.05]" />
-                <span className="h-20 flex-1 rounded bg-texto-claro/[0.05]" />
-              </div>
-              <span className="mt-4 block h-8 w-32 rounded bg-dourado/80" />
-            </div>
-          </BrowserMockup>
+          <BrowserMockup src={solMockup} alt="Projeto Alpha — mockup de site" />
         </Reveal>
 
-        {/* Mockups do que construímos */}
+        {/* Trio: site · landing · WhatsApp */}
         <div className="mt-16 md:mt-24">
           <Reveal
             as="div"
@@ -135,17 +82,20 @@ export default function Solucao() {
           </Reveal>
 
           <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-            {MOCKUPS.map(({ label, node }, i) => (
+            {CARDS.map(({ label, img }, i) => (
               <Reveal
                 as="div"
                 key={label}
                 delay={i * 0.08}
-                className="group rounded-lg border border-preto/10 bg-white p-5 transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(5,5,5,0.35)]"
+                className="group overflow-hidden rounded-lg border border-preto/10 bg-white transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_24px_48px_-28px_rgba(5,5,5,0.35)]"
               >
-                <div className="flex min-h-[168px] items-center">
-                  <div className="w-full">{node}</div>
-                </div>
-                <div className="mt-5 flex items-center gap-2.5 border-t border-preto/10 pt-4">
+                <img
+                  src={img}
+                  alt={label}
+                  loading="lazy"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+                <div className="flex items-center gap-2.5 border-t border-preto/10 px-5 py-4">
                   <span className="h-1.5 w-1.5 rounded-full bg-dourado" />
                   <span className="text-[12px] font-medium tracking-[0.14em] text-preto/70 uppercase">
                     {label}
