@@ -2,6 +2,7 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ArrowUpRight, ArrowDown } from "lucide-react";
 import { WHATSAPP_URL } from "../lib/site";
 import TriangleBackground from "./visual/TriangleBackground";
+import mockupHero from "../assets/mockup-hero.webp";
 
 const EASE = [0.22, 1, 0.36, 1];
 
@@ -32,8 +33,28 @@ export default function Hero() {
       {/* Camada de triângulos de fundo */}
       <TriangleBackground variant="hero" className="z-0" />
 
-      {/* Elemento de assinatura: triângulo Alpha + halo, lado direito */}
-      <AmbientMark reduce={reduce} />
+      {/* Mockup — notebook + smartphone + cards, lado direito (desktop) */}
+      <motion.div
+        initial={reduce ? false : { opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9, ease: EASE, delay: 0.5 }}
+        className="pointer-events-none absolute top-[56%] right-[2%] z-[5] hidden w-[min(44vw,860px)] -translate-y-1/2 select-none xl:block"
+      >
+        {/* Glow dourado sutil atrás do mockup */}
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 -z-10 scale-110 bg-[radial-gradient(circle,rgba(200,164,93,0.10)_0%,rgba(200,164,93,0.03)_35%,transparent_70%)] blur-2xl"
+        />
+        <img
+          src={mockupHero}
+          alt="Mockup responsivo de site institucional e landing page da Alpha Agência Digital"
+          width="1448"
+          height="1086"
+          loading="eager"
+          fetchPriority="high"
+          className="h-auto w-full [filter:drop-shadow(0_28px_50px_rgba(0,0,0,0.45))]"
+        />
+      </motion.div>
 
       {/* Vinheta para foco no texto */}
       <div
@@ -123,6 +144,18 @@ export default function Hero() {
           </span>
           WhatsApp estratégico
         </motion.p>
+
+        {/* Mockup — mobile/tablet (abaixo da copy) */}
+        <motion.div variants={rise} className="mt-14 xl:hidden">
+          <img
+            src={mockupHero}
+            alt="Mockup responsivo de site institucional e landing page da Alpha Agência Digital"
+            width="1448"
+            height="1086"
+            loading="eager"
+            className="pointer-events-none mx-auto h-auto w-full max-w-[680px] select-none [filter:drop-shadow(0_24px_44px_rgba(0,0,0,0.5))]"
+          />
+        </motion.div>
       </motion.div>
 
       {/* Indicador de scroll */}
@@ -143,40 +176,5 @@ export default function Hero() {
         </motion.span>
       </motion.a>
     </section>
-  );
-}
-
-/* Triângulos aninhados da marca + halo dourado ambiente */
-function AmbientMark({ reduce }) {
-  return (
-    <motion.div
-      aria-hidden="true"
-      initial={reduce ? false : { opacity: 0, scale: 0.96 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 1.6, ease: EASE, delay: 0.2 }}
-      className="pointer-events-none absolute top-1/2 right-[-12%] z-0 w-[80vw] max-w-[760px] -translate-y-1/2 md:right-[-4%] md:w-[55vw] lg:right-[2%]"
-    >
-      <motion.div
-        animate={reduce ? {} : { y: [0, -16, 0] }}
-        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-        className="opacity-40 md:opacity-100"
-      >
-        <svg viewBox="0 0 600 540" className="w-full" fill="none">
-          <defs>
-            <radialGradient id="halo" cx="50%" cy="55%" r="50%">
-              <stop offset="0%" stopColor="#C8A45D" stopOpacity="0.16" />
-              <stop offset="55%" stopColor="#C8A45D" stopOpacity="0.04" />
-              <stop offset="100%" stopColor="#C8A45D" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-          {/* halo */}
-          <circle cx="300" cy="300" r="290" fill="url(#halo)" />
-          {/* triângulos aninhados */}
-          <path d="M300 40 L560 500 L40 500 Z" stroke="#C8A45D" strokeOpacity="0.32" strokeWidth="1" strokeLinejoin="round" />
-          <path d="M300 130 L470 500 L130 500 Z" stroke="#C8A45D" strokeOpacity="0.22" strokeWidth="1" strokeLinejoin="round" />
-          <path d="M300 220 L385 500 L215 500 Z" stroke="#C8A45D" strokeOpacity="0.5" strokeWidth="1.25" strokeLinejoin="round" />
-        </svg>
-      </motion.div>
-    </motion.div>
   );
 }

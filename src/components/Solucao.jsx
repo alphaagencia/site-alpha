@@ -1,9 +1,9 @@
 import Reveal from "./Reveal";
 import BrowserMockup from "./visual/BrowserMockup";
-import solMockup from "../assets/sol-mockup.png";
-import solSite from "../assets/sol-site.png";
-import solLanding from "../assets/sol-landing.png";
-import solWhats from "../assets/sol-whats.png";
+import solMockup from "../assets/sol-mockup.jpg";
+import solSite from "../assets/sol-site.jpg";
+import solLanding from "../assets/sol-landing.jpg";
+import solWhats from "../assets/sol-whats.jpg";
 
 const CARDS = [
   { label: "Site institucional", img: solSite },
